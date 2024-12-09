@@ -6,21 +6,21 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 
-public class SignupSteps extends BaseTest {
+public class WebPageLaunchSteps extends BaseTest {
 
     @Given("the user is on the home page")
-    public void userIsOnSignupPage() {
+    public void userIsOnHomePage() {
         setUp();
         driver.get("https://magento.softwaretestingboard.com/");
     }
 
     @When("the user identifies home page content")
-    public void userProvidesValidSignupDetails() {
+    public void userIdentifiesHomePageContent() {
         
     }
 
     @Then("the site launch is successful")
-    public void userShouldSeeAccountConfirmation() {
+    public void userLaunchesWebPageSuccessfully() {
         if (driver.getPageSource().contains("abc")) {
             System.out.println("Page is loaded successfully");
         } else {
