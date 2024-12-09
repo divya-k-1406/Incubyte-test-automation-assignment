@@ -1,5 +1,5 @@
 Feature: Redirected to signup page successfully and user creates an account
-
+  As a user I want to redirect to signup page to create my new accout  if I don't have any account
   Scenario: Redirected to signup page successfully and user creates an account
     Given the user is at home page waiting to get a new account created
     When the user clicks on sign in link and is redirected to sign in page

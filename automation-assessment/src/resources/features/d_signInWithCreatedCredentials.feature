@@ -1,5 +1,7 @@
 Feature: Redirected to sign in page and signed in with credentials
-
+  As a user
+  I need to sign in with the created
+  account's credentials.
   Scenario: Redirected to sign in page and signed in with credentials
     Given the user is at home page waiting to get signed in with credentials
     When the user clicks on sign in link and redirected for login

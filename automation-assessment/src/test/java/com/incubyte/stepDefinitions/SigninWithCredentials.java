@@ -5,7 +5,6 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
 import com.incubyte.base.BaseTest;
-import com.incubyte.pages.AccountPage;
 import com.incubyte.pages.HomePage;
 import com.incubyte.pages.SignInPage;
 import com.incubyte.utils.ScrollActions;
