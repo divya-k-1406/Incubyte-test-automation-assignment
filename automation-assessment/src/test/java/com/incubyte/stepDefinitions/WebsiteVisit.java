@@ -19,13 +19,16 @@ public class WebsiteVisit extends BaseTest {
     public void userIdentifiesHomePageContent() {
         String mainContentXpath = "//*[@id='maincontent']";
         WebElement mainContent = driver.findElement(By.xpath(mainContentXpath));
-        System.out.println("tesxt" + mainContent.getText());
-        mainContent.click();
+        if (mainContent.isDisplayed()) {
+            mainContent.click();
+        }
     }
 
     @Then("the user has loaded the page sucessfully")
     public void userLaunchesWebPageSuccessfully() {
-        if (driver.getPageSource().contains("abc")) {
+        String collectionPageTitleHeaderXpath = "//*[@id='maincontent']//*[contains(@class, 'page-title-wrapper')]";
+        WebElement collectionPageTitleHeader = driver.findElement(By.xpath(collectionPageTitleHeaderXpath));
+        if (collectionPageTitleHeader.isDisplayed()) {
             System.out.println("Page is loaded successfully");
         } else {
             System.err.println("Page loading failed!");
