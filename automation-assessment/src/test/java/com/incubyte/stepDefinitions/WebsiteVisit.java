@@ -1,11 +1,11 @@
 package com.incubyte.stepDefinitions;
 
-import com.incubyte.utils.BaseTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+
+import com.incubyte.base.BaseTest;
+import com.incubyte.pages.HomePage;
 
 public class WebsiteVisit extends BaseTest {
 
@@ -17,18 +17,14 @@ public class WebsiteVisit extends BaseTest {
 
     @When("the user identifies contents from the home page")
     public void userIdentifiesHomePageContent() {
-        String mainContentXpath = "//*[@id='maincontent']";
-        WebElement mainContent = driver.findElement(By.xpath(mainContentXpath));
-        if (mainContent.isDisplayed()) {
-            mainContent.click();
-        }
+        HomePage homePage = new HomePage(driver);
+        homePage.clickMainContent();
     }
 
     @Then("the user has loaded the page sucessfully")
     public void userLaunchesWebPageSuccessfully() {
-        String collectionPageTitleHeaderXpath = "//*[@id='maincontent']//*[contains(@class, 'page-title-wrapper')]";
-        WebElement collectionPageTitleHeader = driver.findElement(By.xpath(collectionPageTitleHeaderXpath));
-        if (collectionPageTitleHeader.isDisplayed()) {
+        HomePage homePage = new HomePage(driver);
+        if (homePage.isCollectionPageTitleHeaderDisplayed()) {
             System.out.println("Page is loaded successfully");
         } else {
             System.err.println("Page loading failed!");

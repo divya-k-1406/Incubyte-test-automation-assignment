@@ -1,4 +1,4 @@
-package com.incubyte.utils;
+package com.incubyte.base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
