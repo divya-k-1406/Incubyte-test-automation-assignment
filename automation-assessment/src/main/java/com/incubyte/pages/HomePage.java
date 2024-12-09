@@ -22,6 +22,11 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
+    public boolean isMainContentDisplayed() {
+        WebElement mainContentBannerElement = this.driver.findElement(mainContentBanner);
+        return mainContentBannerElement.isDisplayed();
+    }
+
     public void clickMainContent() {
         WebElement mainContentBannerElement = this.driver.findElement(mainContentBanner);
         if (mainContentBannerElement.isDisplayed()) {
@@ -49,5 +54,11 @@ public class HomePage {
 
             System.err.println("Sign in Link is not displayed");
         }
+    }
+
+    public boolean isCorrectAccountLoggedIn(String firstName, String lastName) {
+        String loggedInUserNameXpath = "//*[contains(text(), 'Welcome, " + firstName + " " + lastName + "!')]";
+        WebElement loggedInUserNameElement = driver.findElement(By.xpath(loggedInUserNameXpath));
+        return loggedInUserNameElement.isDisplayed();
     }
 }

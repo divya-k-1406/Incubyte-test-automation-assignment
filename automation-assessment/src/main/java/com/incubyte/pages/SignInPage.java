@@ -26,6 +26,11 @@ public class SignInPage {
     private String forgotPasswordLinkXpath = "/*[@id=\"login-form\"]//a[contains(@class, 'remind')]//*[contains(text(), 'Forgot Your Password')]";
     private By forgotPasswordLink = By.xpath(forgotPasswordLinkXpath);
 
+
+    private String incorrectSigninErrorMessageXpath = "//*[contains(text(), 'The account sign-in was incorrect')]";
+    private By incorrectSigninErrorMessage = By.xpath(incorrectSigninErrorMessageXpath);
+    
+
     public SignInPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -53,6 +58,7 @@ public class SignInPage {
     public void enterEmailAddress(String emailAddress) {
         WebElement emailAddressFieldElement = driver.findElement(loginEmailField);
         if (emailAddressFieldElement.isDisplayed()) {
+            emailAddressFieldElement.clear();
             emailAddressFieldElement.sendKeys(emailAddress);
         } else {
             System.err.println("Email address field is not displayed");
@@ -62,6 +68,7 @@ public class SignInPage {
     public void enterPassword(String password) {
         WebElement passwordFieldElement = driver.findElement(loginPasswordField);
         if (passwordFieldElement.isDisplayed()) {
+            passwordFieldElement.clear();
             passwordFieldElement.sendKeys(password);
         } else {
             System.err.println("Password field is not displayed");
@@ -71,7 +78,7 @@ public class SignInPage {
     public void clickLogin() {
         WebElement loginButtonElement = driver.findElement(loginButton);
         if (loginButtonElement.isDisplayed()) {
-            loginButtonElement.clear();
+            loginButtonElement.click();
         } else {
             System.err.println("Login is not displayed");
         }
@@ -84,6 +91,11 @@ public class SignInPage {
         } else {
             System.err.println("Forgot password link is not displayed");
         }
+    }
+
+    public boolean isIncorrectSigninErrorMessageDisplayed() {
+        WebElement incorrectSigninErrorMessageElement = driver.findElement(incorrectSigninErrorMessage);
+        return incorrectSigninErrorMessageElement.isDisplayed();
     }
 
 }

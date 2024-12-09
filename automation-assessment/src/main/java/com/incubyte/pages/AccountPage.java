@@ -20,10 +20,4 @@ public class AccountPage {
         WebElement myAmyAccountHeaderTitleElement = driver.findElement(myAccountHeaderTitle);
         return myAmyAccountHeaderTitleElement.isDisplayed();
     }
-
-    public boolean isCorrectAccountLoggedIn(String firstName, String lastName) {
-        String loggedInUserNameXpath = "//*[contains(text(), 'Welcome, " + firstName + " " + lastName +"!')]";
-        WebElement loggedInUserNameElement = driver.findElement(By.xpath(loggedInUserNameXpath));
-        return loggedInUserNameElement.isDisplayed();
-    }
 }

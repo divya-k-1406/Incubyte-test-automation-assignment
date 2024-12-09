@@ -5,7 +5,6 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
 import com.incubyte.base.BaseTest;
-import com.incubyte.models.User;
 import com.incubyte.pages.AccountPage;
 import com.incubyte.pages.HomePage;
 import com.incubyte.pages.SignInPage;
@@ -13,12 +12,6 @@ import com.incubyte.pages.SignupPage;
 import com.incubyte.utils.ScrollActions;
 
 public class CreateNewAccount extends BaseTest {
-
-    
-    private User user = new User("usertestFirst",
-    "usertestLast",
-    "usertest.firstname.1e@incubyte.com",
-    "user@firstname@incubyte!O");
 
     @Given("the user is at home page waiting to get a new account created")
     public void userIsOnHomePage() {
@@ -71,15 +64,15 @@ public class CreateNewAccount extends BaseTest {
 
     @Then("the user entered details and the account details are to be same and hence the account creation is successful")
     public void userAccountCreationDetailsVerification() throws InterruptedException {
-        AccountPage accountPage = new AccountPage(driver);
-        if(accountPage.isMyAccountTitleDisplayed()) {
+        HomePage homePage = new HomePage(driver);
+        if(homePage.isMainContentDisplayed()) {
             //We are introducing a wait here as the web page takes couple of seconds to render the account name
             Thread.sleep(2000);
             ScrollActions scrollActions = new ScrollActions(driver);
             scrollActions.scrollUp();
-            accountPage.isCorrectAccountLoggedIn(user.getFirstName(), user.getLastName());
+            homePage.isCorrectAccountLoggedIn(user.getFirstName(), user.getLastName());
         } else {
-            System.err.println("Account page is not displayed!");
+            System.err.println("Account name is not displayed!");
         }
         tearDown();
     }
