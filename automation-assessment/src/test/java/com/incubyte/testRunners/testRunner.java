@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
     glue = "com.incubyte.stepDefinitions",
     plugin = {"pretty", "html:target/cucumber-reports.html"}
 )
-public class TestRunner {
+public class testRunner {
 }
