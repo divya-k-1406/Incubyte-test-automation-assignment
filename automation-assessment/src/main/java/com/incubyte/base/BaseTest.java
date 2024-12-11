@@ -11,7 +11,7 @@ public class BaseTest {
     
     protected User user = new User("testuserFirstName",
             "testuserLastName",
-            "testuser.firstname.lastname123@incubyte.com",
+            "testuser.firstname.lastname123abc@incubyte.com",
             "user@firstname@incubyte!O");
 
     public void setUp() {
